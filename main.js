@@ -1,7 +1,12 @@
 import App from './App'
-
+import * as filters from '@/filters/index.js'
 // #ifndef VUE3
 import Vue from 'vue'
+
+Object.keys(filters).forEach((key => {
+	Vue.filter(key, filters[key])
+}))
+
 Vue.config.productionTip = false
 App.mpType = 'app'
 const app = new Vue({

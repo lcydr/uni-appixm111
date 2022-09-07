@@ -30,13 +30,13 @@
         <view class="floor-img-box">
           <!-- 左侧大图片的盒子 -->
           <view class="left-img-box">
-            <image :style="{width:item.product_list[0].image_width + 'rpx'}" :src="item.product_list[0].image_src"
+            <image :style="{width:item.product_list[0].image_width + 'rpx'}" @click="goodslist(item.product_list[0].navigator_url)" :src="item.product_list[0].image_src"
               class="left-img"></image>
           </view>
           <!-- 右侧 4 个小图片的盒子 -->
           <view class="right-img-box">
             <view class="right-img-item" v-for="(item2,i2) in item.product_list" v-if="i2 !== 0">
-              <image class="image-item" :style="{width:item2.image_width + 'rpx'}" :src='item2.image_src'></image>
+              <image class="image-item" :style="{width:item2.image_width + 'rpx'}" @click="goodslist(item2.navigator_url)" :src='item2.image_src'></image>
             </view>
           </view>
         </view>
@@ -92,6 +92,12 @@
           url: '/subpkg/goods-detail/goods-detail?id=' + id
         })
         console.log(id)
+      },
+      goodslist(url){
+        uni.navigateTo({
+          url:'/subpkg/goods_list/goods_list?'+ url.split('?')[1]
+        })
+        // console.log(url.split('?')[1])
       }
     },
     onLoad() {

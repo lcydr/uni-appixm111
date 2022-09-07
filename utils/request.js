@@ -7,6 +7,7 @@ fly.config.baseURL = 'https://api-hmugo-web.itheima.net/api/public/v1'
 //添加请求拦截器
 fly.interceptors.request.use((request)=>{
     //给所有请求添加自定义header
+    toast.loading()
     request.headers["X-Tag"]="flyio";
       //打印出请求体
       // console.log(request.body)
@@ -23,12 +24,13 @@ fly.interceptors.request.use((request)=>{
 fly.interceptors.response.use(
     (response) => {
         //只将请求结果的data字段返回
+        uni.hideToast()
         return response.data
     },
     (err) => {
         //发生网络错误后会走到这里
         toast.err('网络错误')
-        //return Promise.resolve("ssss")
+        return Promise.resolve("请求失败")
     }
 )
 
