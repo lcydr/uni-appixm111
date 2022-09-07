@@ -3,12 +3,10 @@
 
     {
       "path": "pages/home/home",
-
       "style": {
         "enablePullDownRefresh": false,
         "navigationStyle": "custom"
       }
-
     },
     {
       "path": "pages/cate/cate",
@@ -62,6 +60,16 @@
       }
     ]
   },
+  "subPackages": [
+    {
+      "root": "subpkg",
+      "pages": [
+        {
+          "path":"goods-detail/goods-detail"
+        }
+      ]
+    }
+  ],
   "globalStyle": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "uni-app",
